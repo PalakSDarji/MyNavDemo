@@ -33,7 +33,9 @@ class ViewTransactionFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v!!.id){
-            R.id.btnSecActivity -> navController.navigate(R.id.action_viewTransactionFragment_to_seeProfileActivity)
+            R.id.btnSecActivity ->{
+                navController.navigate(R.id.action_viewTransactionFragment_to_seeProfileActivity)
+            }
         }
     }
 
