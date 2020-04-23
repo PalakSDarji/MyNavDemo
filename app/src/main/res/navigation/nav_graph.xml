@@ -66,5 +66,14 @@
         android:id="@+id/viewTransactionFragment"
         android:name="com.palak.mynavdemo.ViewTransactionFragment"
         android:label="fragment_view_transaction"
-        tools:layout="@layout/fragment_view_transaction" />
+        tools:layout="@layout/fragment_view_transaction" >
+        <action
+            android:id="@+id/action_viewTransactionFragment_to_seeProfileActivity"
+            app:destination="@id/seeProfileActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/seeProfileActivity"
+        android:name="com.palak.mynavdemo.SeeProfileActivity"
+        android:label="activity_see_profile"
+        tools:layout="@layout/activity_see_profile" />
 </navigation>
