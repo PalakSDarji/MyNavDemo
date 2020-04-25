@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/firstNavFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -76,4 +76,23 @@
         android:name="com.palak.mynavdemo.SeeProfileActivity"
         android:label="activity_see_profile"
         tools:layout="@layout/activity_see_profile" />
+    <fragment
+        android:id="@+id/firstNavFragment"
+        android:name="com.palak.mynavdemo.FirstNavFragment"
+        android:label="fragment_first_nav"
+        tools:layout="@layout/fragment_first_nav" />
+    <fragment
+        android:id="@+id/secNavFragment"
+        android:name="com.palak.mynavdemo.SecNavFragment"
+        android:label="fragment_sec_nav"
+        tools:layout="@layout/fragment_sec_nav" />
+    <fragment
+        android:id="@+id/thirdNavFragment"
+        android:name="com.palak.mynavdemo.ThirdNavFragment"
+        android:label="fragment_third_nav"
+        tools:layout="@layout/fragment_third_nav" >
+        <action
+            android:id="@+id/action_thirdNavFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

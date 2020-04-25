@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_specify_amount.*
 import java.math.BigDecimal
 
@@ -21,11 +22,12 @@ class SpecifyAmountFragment : Fragment(),View.OnClickListener {
 
     private lateinit var navController: NavController
     lateinit var recipientStr: String
+    val args : SpecifyAmountFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        recipientStr = requireArguments().getString("recipient").toString()
+        recipientStr = args.recipient
     }
 
     override fun onCreateView(
@@ -50,9 +52,12 @@ class SpecifyAmountFragment : Fragment(),View.OnClickListener {
         when(v!!.id){
             R.id.send_btn -> {
                 if(!TextUtils.isEmpty(input_amount.text.toString())){
+
                     val amount = Money(BigDecimal(input_amount.text.toString()))
-                    val bundle = bundleOf("recipient" to recipientStr, "amount" to amount)
-                    navController.navigate(R.id.action_specifyAmountFragment_to_confirmationFragment, bundle)
+                    val action = SpecifyAmountFragmentDirections.actionSpecifyAmountFragmentToConfirmationFragment(recipientStr,amount)
+
+                    //val bundle = bundleOf("recipient" to recipientStr, "amount" to amount)
+                    navController.navigate(action)
                 }
             }
             R.id.cancel_btn -> {
