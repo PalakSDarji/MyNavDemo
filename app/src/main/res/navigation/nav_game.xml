@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_game"
+    app:startDestination="@id/gameFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.palak.mynavdemo.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_gameProfileFragment"
+            app:destination="@id/gameProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameProfileFragment"
+        android:name="com.palak.mynavdemo.GameProfileFragment"
+        android:label="fragment_game_profile"
+        tools:layout="@layout/fragment_game_profile" />
+    <fragment
+        android:id="@+id/gameLoginFragment"
+        android:name="com.palak.mynavdemo.GameLoginFragment"
+        android:label="fragment_game_login"
+        tools:layout="@layout/fragment_game_login" />
+</navigation>
