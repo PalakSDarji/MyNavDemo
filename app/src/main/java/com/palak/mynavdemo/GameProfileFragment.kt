@@ -46,12 +46,12 @@ class GameProfileFragment : Fragment() {
         })
 
         btnLogout.setOnClickListener {
-            viewModel.refuseAuthentication()
+            viewModel.logoutAuthentication()
         }
     }
 
     private fun showWelcomeMessage() {
 
-        txtWelcome.text = "Welcome ${viewModel.username}"
+        txtWelcome.text = "Welcome ${viewModel.user?.userName}"
     }
 }

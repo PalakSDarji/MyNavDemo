@@ -12,11 +12,11 @@ class GameLoginViewModel : ViewModel(){
     }
 
     val authenticationState = MutableLiveData<AuthenticationState>()
-    var username : String
+    var user : User?
 
     init{
         authenticationState.value = AuthenticationState.UNAUTHENTICATED
-        username = ""
+        user = User()
     }
 
     fun refuseAuthentication(){
@@ -25,7 +25,7 @@ class GameLoginViewModel : ViewModel(){
 
     fun authenticate(username : String, password : String){
         if(passwordIsValidForUsername(username,password)){
-            this.username = username
+            this.user = User(username,"full $username","bio",password)
             authenticationState.value = AuthenticationState.AUTHENTICATED
         }
         else {
@@ -40,8 +40,12 @@ class GameLoginViewModel : ViewModel(){
 
     fun logoutAuthentication() : Boolean{
         authenticationState.value = AuthenticationState.LOGGED_OUT
-        username = ""
+        user = null
         return true
+    }
+
+    fun authenticate(user: User) {
+        authenticate(user.userName, user.password)
     }
 
 }

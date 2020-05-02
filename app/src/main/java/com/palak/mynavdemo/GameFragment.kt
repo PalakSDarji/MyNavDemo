@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_game.*
 
@@ -12,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_game.*
  * A simple [Fragment] subclass.
  */
 class GameFragment : Fragment() {
+
+    private val loginViewModel by activityViewModels<GameLoginViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

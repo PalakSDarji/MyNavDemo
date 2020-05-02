@@ -23,5 +23,10 @@
         android:id="@+id/gameLoginFragment"
         android:name="com.palak.mynavdemo.GameLoginFragment"
         android:label="fragment_game_login"
-        tools:layout="@layout/fragment_game_login" />
+        tools:layout="@layout/fragment_game_login" >
+        <action
+            android:id="@+id/action_gameLoginFragment_to_nav_game_registration"
+            app:destination="@id/nav_game_registration" />
+    </fragment>
+    <include app:graph="@navigation/nav_game_registration" />
 </navigation>

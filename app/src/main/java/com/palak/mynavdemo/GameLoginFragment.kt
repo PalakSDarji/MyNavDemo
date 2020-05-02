@@ -38,6 +38,10 @@ class GameLoginFragment : Fragment() {
             viewModel.authenticate(etUserName.text.toString(),etPassword.text.toString())
         }
 
+        btnRegister.setOnClickListener {
+            navController.navigate(R.id.action_gameLoginFragment_to_nav_game_registration)
+        }
+
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
             viewModel.refuseAuthentication()
             navController.popBackStack(R.id.gameFragment,false)
