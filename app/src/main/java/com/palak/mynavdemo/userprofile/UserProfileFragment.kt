@@ -10,8 +10,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateViewModelFactory
 import com.palak.mynavdemo.R
+import com.palak.mynavdemo.databinding.UserProfileFragmentBinding
 
 class UserProfileFragment : Fragment() {
+
+    private var _binding : UserProfileFragmentBinding? = null
+    private val binding get() = _binding!!
 
     companion object {
         fun newInstance() = UserProfileFragment()
@@ -25,7 +29,10 @@ class UserProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.user_profile_fragment, container, false)
+
+        _binding = UserProfileFragmentBinding.inflate(inflater,container,false)
+        val view = binding.root
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -33,9 +40,14 @@ class UserProfileFragment : Fragment() {
 
         userProfileViewModel.user.observe(viewLifecycleOwner, Observer {
             user ->
+            binding.message.text = "user is $user"
             println("in observer")
             println("user is $user")
         })
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
