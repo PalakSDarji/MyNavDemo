@@ -25,7 +25,7 @@ class GameLoginViewModel : ViewModel(){
 
     fun authenticate(username : String, password : String){
         if(passwordIsValidForUsername(username,password)){
-            this.user = User(username,"full $username","bio",password)
+            this.user = User(userName = username,fullName = "full $username",bio = "bio",password = password)
             authenticationState.value = AuthenticationState.AUTHENTICATED
         }
         else {
